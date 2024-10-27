@@ -57,6 +57,14 @@ function Navbar({ isLogin, setIsLogin ,isDark , setIsDark ,isAscending,setIsAsce
         </li>
         <li>
           <NavLink
+            to="/currencyconverter"
+            className={(e) => (e.isActive ? "active-link" : null)}
+          >
+            Currency Converter
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
             to="/country"
             className={(e) => (e.isActive ? "active-link" : null)}
           >

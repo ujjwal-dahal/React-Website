@@ -16,6 +16,7 @@ import CountryList from "./Components/TechNews/CountryList";
 import Sorting from "./Components/Sorting/Sorting";
 import { ToastContainer } from "react-toastify";
 import "../node_modules/react-toastify/dist/ReactToastify.css"
+import CurrencyConverter from "./currency_converter/CurrencyConverter";
 
 export const myContext = createContext();
 
@@ -99,6 +100,10 @@ function App() {
         {
           path: "/logout",
           element: <Home />,
+        },
+        {
+          path : "/currencyconverter",
+          element : <CurrencyConverter />,
         },
         {
           path: "*",
