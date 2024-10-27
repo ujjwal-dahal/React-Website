@@ -18,6 +18,7 @@ import { ToastContainer } from "react-toastify";
 import "../node_modules/react-toastify/dist/ReactToastify.css"
 import CurrencyConverter from "./currency_converter/CurrencyConverter";
 import Calculator from "./Components/Calculator/Calculator";
+import Toolbox from "./Toolbox/Toolbox";
 
 export const myContext = createContext();
 
@@ -109,6 +110,10 @@ function App() {
         {
           path : "/calculator",
           element : <Calculator />,
+        },
+        {
+          path : "/toolbox",
+          element : <Toolbox />,
         },
         {
           path: "*",
