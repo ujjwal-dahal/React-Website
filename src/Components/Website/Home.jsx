@@ -1,59 +1,38 @@
 import { useNavigate } from "react-router-dom";
 import "../../Styles/Home.css";
-import { useAuth0 } from "@auth0/auth0-react";
 
 export default function Home() {
-  // let { isAuthenticated, user , isLoading } = useAuth0();
+  const navigate = useNavigate();
 
-  // if (isLoading) {
-  //   return <div style={{color:"white" , width:"100%" , height:"100vh" , margin:"50px auto"}}>Loading...</div>; // Optionally show a loading indicator
-  // }
-
-  let navigate = useNavigate();
   return (
     <div className="home-container">
       <div className="hero-section">
-        {/* {isAuthenticated ? (
-          <h2> Hi <p style={{color:"yellow" , display:"inline-block" , fontSize:"33px"}}>{user.email}</p> <br></br> Welcome to Our Home Page</h2>
-        ) : (
-          <h2>Welcome to Our Home Page</h2>
-        )} */}
-
         <h2>Welcome to Our Home Page</h2>
         <p>
-          Your journey to explore starts here. We offer a wide range of services
-          and resources to help you.
+          Start your journey here. Discover our diverse range of services and
+          resources to help you achieve more.
         </p>
         <button className="cta-button" onClick={() => navigate("/fetchdata")}>
-          Fetched Data
+          Explore Data
         </button>
       </div>
       <div className="features-section">
         <h3>Our Features</h3>
         <div className="features-grid">
-          <div className="feature-item">
-            <h4>Feature 1</h4>
-            <p>
-              Learn about our amazing feature that helps you achieve more with
-              less effort.
-            </p>
-          </div>
-          <div className="feature-item">
-            <h4>Feature 2</h4>
-            <p>
-              Explore our tools designed to enhance productivity and drive
-              results.
-            </p>
-          </div>
-          <div className="feature-item">
-            <h4>Feature 3</h4>
-            <p>
-              Discover how our platform can provide solutions tailored to your
-              needs.
-            </p>
-          </div>
+          <FeatureItem title="Feature 1" description="Experience our powerful feature to enhance productivity." />
+          <FeatureItem title="Feature 2" description="Explore tools designed to streamline your work." />
+          <FeatureItem title="Feature 3" description="Leverage tailored solutions to meet your unique needs." />
         </div>
       </div>
+    </div>
+  );
+}
+
+function FeatureItem({ title, description }) {
+  return (
+    <div className="feature-item">
+      <h4>{title}</h4>
+      <p>{description}</p>
     </div>
   );
 }
