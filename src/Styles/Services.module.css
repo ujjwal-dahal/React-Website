@@ -31,7 +31,7 @@
 
 /* Call-to-Action Button */
 .ctaButton {
-  background-color: #3498db;
+  background-color: rgb(128, 0, 255);
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -42,7 +42,7 @@
 }
 
 .ctaButton:hover {
-  background-color: #2980b9;
+  background-color: rgb(97, 17, 178);
 }
 
 /* Features Section Styles */
