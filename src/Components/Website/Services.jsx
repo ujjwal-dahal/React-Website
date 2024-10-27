@@ -8,9 +8,10 @@ export default function Services() {
     <div className={styles.servicesContainer}>
       {/* Hero Section */}
       <section className={styles.heroSection}>
-        <h1>Our Services</h1>
+        <h1>Our Comprehensive Services</h1>
         <p>
-          We are committed to delivering exceptional services tailored to meet your unique needs.<br></br> Explore our range of offerings to elevate your experience.
+          At [Your Company Name], we are dedicated to providing exceptional services tailored to your specific needs. 
+          Explore our offerings designed to elevate your experience and drive success.
         </p>
         <button className={styles.ctaButton} onClick={() => navigate("/about")}>
           Learn More
@@ -21,25 +22,29 @@ export default function Services() {
       <section className={styles.featuresSection}>
         <h2>What We Offer</h2>
         <p>
-          Our comprehensive suite of services is designed to empower you and drive your success. Discover how we can help you achieve your goals:
+          Our extensive range of services is crafted to empower you and help you achieve your goals effectively. 
+          Here’s how we can assist you:
         </p>
         <div className={styles.featuresGrid}>
           <div className={styles.featureItem}>
             <h3>Consulting Services</h3>
             <p>
-              Our expert consultants provide valuable insights and strategies to help you navigate complex challenges and achieve your objectives.
+              Our expert consultants deliver valuable insights and strategies, guiding you through complex challenges 
+              to achieve your objectives efficiently.
             </p>
           </div>
           <div className={styles.featureItem}>
             <h3>Product Development</h3>
             <p>
-              We specialize in creating innovative products tailored to your specifications, ensuring high quality and efficiency.
+              We specialize in crafting innovative products tailored to your specifications, ensuring quality and 
+              operational efficiency every step of the way.
             </p>
           </div>
           <div className={styles.featureItem}>
             <h3>Customer Support</h3>
             <p>
-              Our dedicated support team is here to assist you, ensuring your experience is seamless and satisfactory.
+              Our dedicated support team is committed to providing exceptional service, ensuring a seamless and 
+              satisfying experience for our clients.
             </p>
           </div>
         </div>
