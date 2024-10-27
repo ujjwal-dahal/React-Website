@@ -17,6 +17,7 @@ import Sorting from "./Components/Sorting/Sorting";
 import { ToastContainer } from "react-toastify";
 import "../node_modules/react-toastify/dist/ReactToastify.css"
 import CurrencyConverter from "./currency_converter/CurrencyConverter";
+import Calculator from "./Components/Calculator/Calculator";
 
 export const myContext = createContext();
 
@@ -104,6 +105,10 @@ function App() {
         {
           path : "/currencyconverter",
           element : <CurrencyConverter />,
+        },
+        {
+          path : "/calculator",
+          element : <Calculator />,
         },
         {
           path: "*",
