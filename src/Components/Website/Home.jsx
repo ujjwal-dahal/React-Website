@@ -12,8 +12,8 @@ export default function Home() {
           Start your journey here. Discover our diverse range of services and
           resources to help you achieve more.
         </p>
-        <button className="cta-button" onClick={() => navigate("/fetchdata")}>
-          Explore Data
+        <button className="cta-button" onClick={() => navigate("/about")}>
+          About Us
         </button>
       </div>
       <div className="features-section">
