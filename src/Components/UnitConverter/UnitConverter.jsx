@@ -13,28 +13,28 @@ const UnitConverter = () => {
 
   const convertLength = () => {
     if (!lengthValue) return;
-    let feet, meters;
+    let result;
     if (lengthUnit === 'meters') {
-      feet = lengthValue * 3.28084;
-      meters = lengthValue;
+      const feet = lengthValue * 3.28084;
+      result = `${lengthValue} meters = ${feet.toFixed(2)} feet`;
     } else {
-      meters = lengthValue / 3.28084;
-      feet = lengthValue;
+      const meters = lengthValue / 3.28084;
+      result = `${lengthValue} feet = ${meters.toFixed(2)} meters`;
     }
-    setLengthResult(`Feet: ${feet.toFixed(2)} ft, Meters: ${meters.toFixed(2)} m`);
+    setLengthResult(result);
   };
 
   const convertWeight = () => {
     if (!weightValue) return;
-    let pounds, kilograms;
+    let result;
     if (weightUnit === 'kilograms') {
-      pounds = weightValue * 2.20462;
-      kilograms = weightValue;
+      const pounds = weightValue * 2.20462;
+      result = `${weightValue} kg = ${pounds.toFixed(2)} lbs`;
     } else {
-      kilograms = weightValue / 2.20462;
-      pounds = weightValue;
+      const kilograms = weightValue / 2.20462;
+      result = `${weightValue} lbs = ${kilograms.toFixed(2)} kg`;
     }
-    setWeightResult(`Pounds: ${pounds.toFixed(2)} lbs, Kilograms: ${kilograms.toFixed(2)} kg`);
+    setWeightResult(result);
   };
 
   return (
@@ -55,7 +55,7 @@ const UnitConverter = () => {
           className={styles.input}
         />
         <button onClick={convertLength} className={styles.button}>Convert</button>
-        <p>{lengthResult}</p>
+        {lengthResult && <p className={styles.result}>{lengthResult}</p>}
       </div>
 
       <div className={styles.converter}>
@@ -72,7 +72,7 @@ const UnitConverter = () => {
           className={styles.input}
         />
         <button onClick={convertWeight} className={styles.button}>Convert</button>
-        <p>{weightResult}</p>
+        {weightResult && <p className={styles.result}>{weightResult}</p>}
       </div>
     </div>
   );
