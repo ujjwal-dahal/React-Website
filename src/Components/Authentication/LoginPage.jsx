@@ -5,24 +5,26 @@ import { myContext } from "../../App";
 import { toast } from "react-toastify";
 
 const LoginPage = () => {
-  
-  let { setIsLogin, localData } = useContext(myContext)
-  let navigate = useNavigate();
+  const { setIsLogin, localData } = useContext(myContext);
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
+    setLoading(true); // Start loading state
     const user = localData.find(
       (user) => user.email === email && user.password === password
     );
 
     if (user) {
-      setIsLogin(true); 
-      navigate("/"); 
+      setIsLogin(true);
+      navigate("/");
     } else {
-      toast.error("Invalid Credentials")
+      toast.error("Invalid Credentials");
     }
+    setLoading(false); // End loading state
   };
 
   return (
@@ -52,8 +54,8 @@ const LoginPage = () => {
               required
             />
           </div>
-          <button type="submit" className="login-btn">
-            Login
+          <button type="submit" className="login-btn" disabled={loading}>
+            {loading ? "Logging in..." : "Login"}
           </button>
           <div className="signup-redirect">
             <p>New here? <Link to="/signup">Create an account</Link></p>

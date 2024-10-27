@@ -3,11 +3,11 @@ import "./Css/SignupPage.css";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
-let keyName = "signupData";
+const keyName = "signupData";
 
-let SignupPage = () => {
-  let navigate = useNavigate();
-  let dataFormat = {
+const SignupPage = () => {
+  const navigate = useNavigate();
+  const initialData = {
     firstName: "",
     lastName: "",
     email: "",
@@ -16,138 +16,78 @@ let SignupPage = () => {
     confirmPassword: "",
   };
 
-  const [inputData, setInputData] = useState(dataFormat);
+  const [inputData, setInputData] = useState(initialData);
   const [totalData, setTotalData] = useState(
-    JSON.parse(localStorage.getItem("signupData")) || []
+    JSON.parse(localStorage.getItem(keyName)) || []
   );
 
-  let handleInput = (event) => {
-    setInputData((previousData) => ({
-      ...previousData,
-      [event.target.name]: event.target.value,
-    }));
+  const handleInput = (event) => {
+    const { name, value } = event.target;
+    setInputData((prev) => ({ ...prev, [name]: value }));
   };
 
-  let signupClick = (e) => {
+  const validateInput = () => {
+    const { firstName, lastName, email, password, confirmPassword } = inputData;
+    if (!firstName || !lastName || !email || !password) {
+      toast.error("All fields are required.");
+      return false;
+    }
+    if (password !== confirmPassword) {
+      toast.error("Passwords do not match.", {
+        position: "bottom-right",
+        theme: "colored",
+      });
+      return false;
+    }
+    return true;
+  };
+
+  const saveToLocalStorage = (data) => {
+    localStorage.setItem(keyName, JSON.stringify(data));
+    setTotalData(data);
+  };
+
+  const signupClick = (e) => {
     e.preventDefault();
-
-    if (
-      inputData.firstName !== "" &&
-      inputData.lastName !== "" &&
-      inputData.email !== "" &&
-      inputData.password !== ""
-    ) {
-      if (inputData.password === inputData.confirmPassword) {
-        let updatedData = [...totalData, inputData];
-        setTotalData(updatedData);
-
-        localStorage.setItem(keyName, JSON.stringify(updatedData));
-
-        console.log("Total Data:", updatedData);
-        toast.success("Registration Successfully");
-        navigate("/login");
-      } else {
-        toast.error("Passwords do not match", {
-          position: "bottom-right",
-          theme: "colored",
-        });
-      }
-    } else {
-      toast.error("Invalid Credentials");
+    if (validateInput()) {
+      const updatedData = [...totalData, inputData];
+      saveToLocalStorage(updatedData);
+      toast.success("Registration Successful");
+      navigate("/login");
     }
   };
 
   return (
-    <>
-      <div className="signup-container">
-        <div className="signup-form">
-          <h1>Create Your Account</h1>
-          <form method="post">
-            <div className="form-group">
-              <label htmlFor="first-name">First Name</label>
+    <div className="signup-container">
+      <div className="signup-form">
+        <h1>Create Your Account</h1>
+        <form onSubmit={signupClick}>
+          {Object.entries(inputData).map(([key, value]) => (
+            <div className="form-group" key={key}>
+              <label htmlFor={key}>{key.replace(/([A-Z])/g, " $1")}</label>
               <input
-                type="text"
-                name="firstName"
-                value={inputData.firstName}
-                id="first-name"
-                placeholder="Enter first name"
+                type={key.includes("password") ? "password" : "text"}
+                name={key}
+                id={key}
+                value={value}
+                placeholder={`Enter ${key.replace(/([A-Z])/g, " $1")}`}
                 onChange={handleInput}
+                required
               />
             </div>
-
-            <div className="form-group">
-              <label htmlFor="last-name">Last Name</label>
-              <input
-                type="text"
-                name="lastName"
-                value={inputData.lastName}
-                id="last-name"
-                placeholder="Enter last name"
-                onChange={handleInput}
-              />
-            </div>
-
-            <div className="form-group">
-              <label htmlFor="email">Email</label>
-              <input
-                type="email"
-                name="email"
-                value={inputData.email}
-                id="email"
-                placeholder="Enter email"
-                onChange={handleInput}
-              />
-            </div>
-
-            <div className="form-group">
-              <label htmlFor="phone">Phone Number</label>
-              <input
-                type="tel"
-                name="phone"
-                id="phone"
-                value={inputData.phone}
-                placeholder="Enter phone number"
-                onChange={handleInput}
-              />
-            </div>
-
-            <div className="form-group">
-              <label htmlFor="password">Password</label>
-              <input
-                type="password"
-                id="password"
-                placeholder="Enter password"
-                name="password"
-                value={inputData.password}
-                onChange={handleInput}
-              />
-            </div>
-
-            <div className="form-group">
-              <label htmlFor="confirm-password">Confirm Password</label>
-              <input
-                type="password"
-                id="confirm-password"
-                placeholder="Confirm password"
-                name="confirmPassword"
-                value={inputData.confirmPassword}
-                onChange={handleInput}
-              />
-            </div>
-
-            <button type="submit" className="signup-btn" onClick={signupClick}>
-              Sign Up
-            </button>
-            <div className="account-already">
-              <p>Already Have an Account?</p>{" "}
-              <Link className="login" to="/login">
-                Login
-              </Link>
-            </div>
-          </form>
-        </div>
+          ))}
+          <button type="submit" className="signup-btn">
+            Sign Up
+          </button>
+          <div className="account-already">
+            <p>Already Have an Account?</p>
+            <Link className="login" to="/login">
+              Login
+            </Link>
+          </div>
+        </form>
       </div>
-    </>
+    </div>
   );
 };
 
