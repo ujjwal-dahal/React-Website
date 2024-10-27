@@ -11,28 +11,28 @@ const UnitConverter = () => {
   const [lengthUnit, setLengthUnit] = useState('meters');
   const [weightUnit, setWeightUnit] = useState('kilograms');
 
-  const convertLength = (value) => {
-    if (!value) return;
+  const convertLength = () => {
+    if (!lengthValue) return;
     let feet, meters;
     if (lengthUnit === 'meters') {
-      feet = value * 3.28084;
-      meters = value;
+      feet = lengthValue * 3.28084;
+      meters = lengthValue;
     } else {
-      meters = value / 3.28084;
-      feet = value;
+      meters = lengthValue / 3.28084;
+      feet = lengthValue;
     }
     setLengthResult(`Feet: ${feet.toFixed(2)} ft, Meters: ${meters.toFixed(2)} m`);
   };
 
-  const convertWeight = (value) => {
-    if (!value) return;
+  const convertWeight = () => {
+    if (!weightValue) return;
     let pounds, kilograms;
     if (weightUnit === 'kilograms') {
-      pounds = value * 2.20462;
-      kilograms = value;
+      pounds = weightValue * 2.20462;
+      kilograms = weightValue;
     } else {
-      kilograms = value / 2.20462;
-      pounds = value;
+      kilograms = weightValue / 2.20462;
+      pounds = weightValue;
     }
     setWeightResult(`Pounds: ${pounds.toFixed(2)} lbs, Kilograms: ${kilograms.toFixed(2)} kg`);
   };
@@ -50,13 +50,11 @@ const UnitConverter = () => {
         <input
           type="number"
           value={lengthValue}
-          onChange={(e) => {
-            setLengthValue(e.target.value);
-            convertLength(e.target.value);
-          }}
+          onChange={(e) => setLengthValue(e.target.value)}
           placeholder={`Enter ${lengthUnit === 'meters' ? 'meters' : 'feet'}`}
           className={styles.input}
         />
+        <button onClick={convertLength} className={styles.button}>Convert</button>
         <p>{lengthResult}</p>
       </div>
 
@@ -69,13 +67,11 @@ const UnitConverter = () => {
         <input
           type="number"
           value={weightValue}
-          onChange={(e) => {
-            setWeightValue(e.target.value);
-            convertWeight(e.target.value);
-          }}
+          onChange={(e) => setWeightValue(e.target.value)}
           placeholder={`Enter ${weightUnit === 'kilograms' ? 'kilograms' : 'pounds'}`}
           className={styles.input}
         />
+        <button onClick={convertWeight} className={styles.button}>Convert</button>
         <p>{weightResult}</p>
       </div>
     </div>
