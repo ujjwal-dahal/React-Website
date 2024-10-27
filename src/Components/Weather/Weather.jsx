@@ -11,28 +11,37 @@ export default function Weather() {
   }, [location]);
 
   const fetchWeather = async (city) => {
-    const apiKey = "5eacecc6b507d252116f87d4b5dd4826"; // Your API key
+    const apiKey = "afccc1bfd03820a3ead66744494aead2"; // Your API key
     try {
       // Get the location ID
       const locationResponse = await fetch(
         `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`
       );
-      const locationData = await locationResponse.json();
 
       if (!locationResponse.ok) {
-        throw new Error(locationData.message); // If the response is not okay, throw an error with the message from the API
+        const locationData = await locationResponse.json();
+        console.error("Location API Error:", locationData); // Log the error response
+        throw new Error(locationData.message);
       }
 
+      const locationData = await locationResponse.json();
       // Get weather data using the location ID
       const { lat, lon } = locationData.coord; // Get the latitude and longitude from the location data
       const weatherResponse = await fetch(
         `https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly,alerts&appid=${apiKey}&units=metric`
       );
-      const weatherResult = await weatherResponse.json();
 
+      if (!weatherResponse.ok) {
+        const weatherData = await weatherResponse.json();
+        console.error("Weather API Error:", weatherData); // Log the error response
+        throw new Error("Failed to fetch weather data.");
+      }
+
+      const weatherResult = await weatherResponse.json();
       setWeatherData(weatherResult);
       setError("");
     } catch (err) {
+      console.error("Fetch Error:", err); // Log the error
       setError(err.message);
       setWeatherData(null);
     }
@@ -43,7 +52,11 @@ export default function Weather() {
   };
 
   const handleSearch = () => {
-    fetchWeather(location);
+    if (location) {
+      fetchWeather(location);
+    } else {
+      setError("Please enter a city name.");
+    }
   };
 
   return (
