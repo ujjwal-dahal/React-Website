@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import styles from '../../Styles/Services.module.css';
 import image1 from "../../assets/imagesServices/image1.jpeg"
 import image2 from "../../assets/imagesServices/image2.png"
-import image3 from "../../assets/imagesServices/image3.png"
+import image3 from "../../assets/imagesServices/image3.webp"
 
 export default function Services() {
   const navigate = useNavigate();

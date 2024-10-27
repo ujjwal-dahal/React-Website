@@ -1,62 +1,70 @@
-/* Weather.module.css */
-
 .weatherContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem;
-  background-color: #f0f4f8;
-  min-height: 100vh;
-  font-family: 'Arial', sans-serif;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f0f0f0;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .title {
-  font-size: 2.5rem;
-  color: #333;
-  margin-bottom: 1.5rem;
+  text-align: center;
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.searchContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.searchInput {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-right: 10px;
+}
+
+.searchButton {
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.searchButton:hover {
+  background-color: #0056b3;
 }
 
 .error {
-  color: #e74c3c;
-  margin-top: 1rem;
+  color: red;
+  text-align: center;
+  margin-top: 10px;
 }
 
 .weatherInfo {
   text-align: center;
-  padding: 1rem;
-  background-color: white;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
 }
 
 .city {
-  font-size: 2rem;
-  margin: 0.5rem 0;
+  font-size: 1.5em;
+  margin-bottom: 10px;
 }
 
 .temperature {
-  font-size: 3rem;
-  margin: 0.5rem 0;
+  font-size: 2em;
+  color: #ff5722;
 }
 
 .condition {
-  font-size: 1.2rem;
-  color: #666;
+  font-size: 1.2em;
 }
 
 .humidity,
 .wind {
-  font-size: 1rem;
-  color: #555;
-}
-
-@media (max-width: 600px) {
-  .title {
-    font-size: 2rem;
-  }
-
-  .temperature {
-    font-size: 2.5rem;
-  }
+  margin: 5px 0;
 }
