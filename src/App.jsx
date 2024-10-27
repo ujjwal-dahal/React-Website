@@ -20,6 +20,7 @@ import CurrencyConverter from "./currency_converter/CurrencyConverter";
 import Calculator from "./Components/Calculator/Calculator";
 import Toolbox from "./Toolbox/Toolbox";
 import Weather from "./Components/Weather/Weather";
+import UnitConverter from "./Components/UnitConverter/UnitConverter";
 
 export const myContext = createContext();
 
@@ -119,6 +120,10 @@ function App() {
         {
           path : "/weather",
           element : <Weather />,
+        },
+        {
+          path : "/unitconverter",
+          element : <UnitConverter />,
         },
         {
           path: "*",
