@@ -2,7 +2,7 @@
 
 .toolboxContainer {
   padding: 2rem;
-  background-color: #f4f4f8;
+  background-color: #1e1e33;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -12,7 +12,7 @@
 
 .toolboxTitle {
   font-size: 2.5rem;
-  color: #333;
+  color: white;
   font-weight: 600;
   margin-bottom: 1rem;
 }
@@ -54,7 +54,7 @@
 }
 
 .toolButton {
-  background-color: #4caf50;
+  background-color: rgb(128, 0, 255);
   color: white;
   padding: 0.5rem 1rem;
   border: none;
@@ -65,7 +65,7 @@
 }
 
 .toolButton:hover {
-  background-color: #45a049;
+  background-color: rgb(82, 24, 139);
 }
 
 @media (max-width: 768px) {
