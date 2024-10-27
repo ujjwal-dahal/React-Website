@@ -19,7 +19,7 @@ export default function Weather() {
   }, []);
 
   const fetchWeather = async (lat, lon) => {
-    const apiKey = "API KEY"; // Your API key
+    const apiKey = "5eacecc6b507d252116f87d4b5dd4826"; 
     const url = `https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly,alerts&appid=${apiKey}&units=metric`;
 
     try {
