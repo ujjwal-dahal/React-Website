@@ -6,7 +6,7 @@ export default function Footer() {
   return (
     <footer className="footer">
       <div className="footer-content">
-        <p className='footer-title'>&copy; {new Date().getFullYear()} UJJWAL DAHAL. All rights reserved.</p>
+        <p className='footer-title'>&copy; {new Date().getFullYear()} CODENEST.  All rights reserved.</p>
         
         <ul className="footer-links">
           <li>
