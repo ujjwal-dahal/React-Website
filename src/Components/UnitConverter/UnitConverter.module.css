@@ -1,4 +1,4 @@
-/* src/UnitConverter.module.css */
+
 
 .container {
   max-width: 600px;
@@ -32,16 +32,7 @@ h1 {
   margin-bottom: 10px;
 }
 
-.select {
-  width: 100%;
-  padding: 12px;
-  margin: 10px 0;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 1rem;
-}
-
-.input {
+.select, .input {
   width: 100%;
   padding: 12px;
   margin: 10px 0;
@@ -53,8 +44,8 @@ h1 {
 .button {
   width: 100%;
   padding: 12px;
-  background-color: #3498db;
-  color: white;
+  background-color: rgb(128, 0, 255);
+  color: #ffffff;
   border: none;
   border-radius: 5px;
   font-size: 1rem;
@@ -63,11 +54,11 @@ h1 {
 }
 
 .button:hover {
-  background-color: #2980b9;
+  background-color: rgb(96, 42, 149);
 }
 
 p {
-  color: #333;
+  color: #333333;
   font-size: 16px;
   margin-top: 10px;
 }
