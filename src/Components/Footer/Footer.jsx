@@ -9,7 +9,6 @@ export default function Footer() {
 
         <p className='footer-title'>&copy; {new Date().getFullYear()} CODENEST.  All rights reserved.</p>
 
-        <p className='footer-title'>&copy; {new Date().getFullYear()} CODENEST. All rights reserved.</p>
 
         
         <ul className="footer-links">
