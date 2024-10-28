@@ -47,55 +47,57 @@ To work on this project, ensure you have:
    ```bash
    git clone https://github.com/your-username/react-website.git
    
-Navigate to the project directory:
+3. Navigate to the project directory:
 ```bash
   cd react-website
 
 ```
 
-Install the necessary dependencies:
+4. Install the necessary dependencies:
 ```bash
 npm install
 ```
 
-Start the development server:
+5. Start the development server:
 ```bash
 npm start
 ```
 
-Usage
-Once the server is running, open http://localhost:3000 in your browser to view and test the website.
+6. Once the server is running, 
+open http://localhost:3000 in your browser to view and test the website.
 
 ## Contribution Guidelines
 We welcome contributions of all types! To contribute effectively, please follow these guidelines:
 
-Fork this repository and create a new branch for your contribution:
+1. Fork this repository and create a new branch for your contribution:
 ```bash
 git checkout -b feature/your-feature-name
 ```
 
-Commit your changes with a meaningful message:
+2. Commit your changes with a meaningful message:
 ```bash
 git commit -m "Add description of feature or fix"
 ```
 
-Push to your branch on your forked repository:
+3. Push to your branch on your forked repository:
 ```bash
 git push origin feature/your-feature-name
 ```
 
-Open a Pull Request (PR) to this repository’s main branch, detailing your changes.
-Pro Tip: Make your pull requests small to avoid merge conflicts and ensure quick reviews.
+4. Open a Pull Request (PR) to this repository’s main branch, detailing your changes.
 
-Issues
+### Pro Tip: Make your pull requests small to avoid merge conflicts and ensure quick reviews.
+
+### Issues
 Check out the Issues tab to find open issues to work on or to suggest improvements.
 
-Syncing Your Fork
+## Syncing Your Fork
 To keep your fork updated with the main repository and avoid conflicts, set up an upstream remote:
 
-
+```bash
 git remote add upstream https://github.com/original-owner/react-website.git
-Verify the remote:
+```
+### Verify the remote:
 ```bash
 git remote -v
 ```
@@ -106,17 +108,17 @@ Then pull any new changes from the main repository:
 Hacktoberfest rewards contributors with swag (like T-shirts and stickers) for completing 4 successfully merged pull requests. Make meaningful contributions, and don’t miss out!
 
 ## FAQs
-Who can contribute?
+### Who can contribute?
 Anyone with a GitHub account who’s registered for Hacktoberfest is welcome!
 
-Do contributors get paid?
+### Do contributors get paid?
 This is a community-driven event—no payments, just learning and fun!
 
-How many PRs are needed for Hacktoberfest swag?
+### How many PRs are needed for Hacktoberfest swag?
 You need 4 approved and merged PRs to qualify.
 
-When is Hacktoberfest?
+### When is Hacktoberfest?
 It runs from October 1 to October 31 each year.
 
-Acknowledgments
+## Acknowledgments
 Thank you to all contributors for helping improve this project. We appreciate your time and effort in making this website better for everyone!
